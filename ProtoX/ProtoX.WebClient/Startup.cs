@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProtoX.Services.Manager;
 
 namespace ProtoX.WebClient
 {
@@ -19,6 +20,7 @@ namespace ProtoX.WebClient
         }
 
         public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -64,6 +66,11 @@ namespace ProtoX.WebClient
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+        }
+
+        private void Initialize(IServiceCollection services)
+        {
+            ServiceManager.RegisterServices(services, this.Configuration);
         }
     }
 }

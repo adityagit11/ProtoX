@@ -25,7 +25,7 @@ namespace ProtoX.DataAccess.Initializer
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // connection string
-            var connectionString = "Server=tcp:adisingtools.database.windows.net,1433;Initial Catalog=protoxpreprod;Persist Security Info=False;User ID=adisingtools;Password=@dm1ntools;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            var connectionString = "";
             optionsBuilder.UseSqlServer(connectionString);
         }
 
